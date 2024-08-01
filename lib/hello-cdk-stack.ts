@@ -7,13 +7,13 @@ export class HelloCdkStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const repo_ = new cdk.aws_ecr.Repository(this, "hello-cdk-repo-062024", {
-      repositoryName: "hello-cdk-repo",
+    const repo_ = new cdk.aws_ecr.Repository(this, "sample html app", {
+      repositoryName: "sample-html-app",
     });
 
-    const image = new DockerImageAsset(this, "hello-cdk-img", {
+    const image = new DockerImageAsset(this, "sample-html-app-img", {
       // Put the directory where your Dockerfile is below
-      directory: path.join(__dirname, "./app"),
+      directory: path.join(__dirname, "../html"),
       invalidation: {
         buildArgs: false,
       },
