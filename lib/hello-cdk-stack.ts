@@ -7,13 +7,13 @@ export class HelloCdkStack extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const repo_ = new cdk.aws_ecr.Repository(this, "sample node app", {
-      repositoryName: "sample-node-app",
+    const repo_ = new cdk.aws_ecr.Repository(this, "sample react app", {
+      repositoryName: "sample-react-app",
     });
 
-    const image = new DockerImageAsset(this, "sample-node-app-img", {
+    const image = new DockerImageAsset(this, "sample-react-app-img", {
       // Put the directory where your Dockerfile is below
-      directory: path.join(__dirname, "../apps/nextjs-app"),
+      directory: path.join(__dirname, "../apps/react-app"),
       invalidation: {
         buildArgs: false,
       },
