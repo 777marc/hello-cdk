@@ -26,9 +26,9 @@ export class HelloCdkStack extends cdk.Stack {
       dest: new ecrdeploy.DockerImageName(`${repo_.repositoryUri}:latest`),
     });
 
-    const defaultVpc = ec2.Vpc.fromLookup(this, "default", {
-      vpcName: "default",
-    });
+    // const defaultVpc = ec2.Vpc.fromLookup(this, "default", {
+    //   vpcName: "default",
+    // });
 
     new cdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService(
       this,
@@ -37,7 +37,7 @@ export class HelloCdkStack extends cdk.Stack {
         memoryLimitMiB: 1024,
         desiredCount: 2,
         cpu: 512,
-        vpc: defaultVpc,
+        // vpc: defaultVpc,
         taskImageOptions: {
           image: ecs.ContainerImage.fromRegistry(
             "388414971737.dkr.ecr.us-east-1.amazonaws.com/sample-react-app:latest"
