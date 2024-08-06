@@ -30,35 +30,35 @@ export class HelloCdkStack extends cdk.Stack {
     //   vpcName: "default",
     // });
 
-    new cdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService(
-      this,
-      "Service",
-      {
-        memoryLimitMiB: 1024,
-        desiredCount: 2,
-        cpu: 512,
-        // vpc: defaultVpc,
-        taskImageOptions: {
-          image: ecs.ContainerImage.fromRegistry(
-            "388414971737.dkr.ecr.us-east-1.amazonaws.com/sample-react-app:latest"
-          ),
-        },
-        taskSubnets: {
-          subnets: [
-            ec2.Subnet.fromSubnetId(
-              this,
-              "us-east-1a",
-              "subnet-01db51d0d61291d6c"
-            ),
-            ec2.Subnet.fromSubnetId(
-              this,
-              "us-east-1b",
-              "subnet-0f867a504bd6bde72"
-            ),
-          ],
-        },
-        loadBalancerName: "cdk-lb",
-      }
-    );
+    // new cdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService(
+    //   this,
+    //   "Service",
+    //   {
+    //     memoryLimitMiB: 1024,
+    //     desiredCount: 2,
+    //     cpu: 512,
+    //     // vpc: defaultVpc,
+    //     taskImageOptions: {
+    //       image: ecs.ContainerImage.fromRegistry(
+    //         "388414971737.dkr.ecr.us-east-1.amazonaws.com/sample-react-app:latest"
+    //       ),
+    //     },
+    //     taskSubnets: {
+    //       subnets: [
+    //         ec2.Subnet.fromSubnetId(
+    //           this,
+    //           "us-east-1a",
+    //           "subnet-01db51d0d61291d6c"
+    //         ),
+    //         ec2.Subnet.fromSubnetId(
+    //           this,
+    //           "us-east-1b",
+    //           "subnet-0f867a504bd6bde72"
+    //         ),
+    //       ],
+    //     },
+    //     loadBalancerName: "cdk-lb",
+    //   }
+    // );
   }
 }
